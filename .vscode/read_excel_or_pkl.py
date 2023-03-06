@@ -1,11 +1,12 @@
-import os
+#read_exces_or_pkl.py
 import pandas as pd
 import hashlib
+import os
 
 
 def read_excel_or_pkl(base_path, filename, header=0):
     path_file_xlsx = base_path + filename
-    path_file_pkl = base_path + 'pickle\\' + filename.replace('xlsx', 'pkl')
+    path_file_pkl = base_path + 'pickle/' + filename.replace('xlsx', 'pkl')
     if this_file_has_been_read(base_path, filename, path_file_xlsx, path_file_pkl):
         df = pd.read_pickle(path_file_pkl)
     else:
@@ -18,7 +19,7 @@ def this_file_has_been_read(base_path, filename, path_file_xlsx, path_file_pkl):
     answer = False
     if not os.path.exists(base_path + 'pickle'):
         os.mkdir(base_path + 'pickle')
-    hash_table_file = base_path + 'pickle\\hash_table.pkl'
+    hash_table_file = base_path + 'pickle/hash_table.pkl'
     if os.path.exists(hash_table_file):
         df_hash_table = pd.read_pickle(hash_table_file)
     else:
@@ -43,3 +44,9 @@ def md5(filename):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
+
+
+if __name__ == '__main__':
+    path = os.getcwd()
+    df = read_excel_or_pkl(path+'/', 'SampleData.xlsx')
+    print(df)
