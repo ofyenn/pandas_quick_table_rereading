@@ -17,9 +17,11 @@ def read_excel_or_pkl(base_path, filename, header=0):
 
 def this_file_has_been_read(base_path, filename, path_file_xlsx, path_file_pkl):
     answer = False
-    if not os.path.exists(base_path + 'pickle'):
-        os.mkdir(base_path + 'pickle')
-    hash_table_file = base_path + 'pickle/hash_table.pkl'
+    
+    base_path_pickle = os.path.join(base_path, 'pickle')
+    if not base_path_pickle:
+        os.mkdir(base_path_pickle)
+    hash_table_file = os.path.join(base_path,  'hash_table.pkl')
     if os.path.exists(hash_table_file):
         df_hash_table = pd.read_pickle(hash_table_file)
     else:
