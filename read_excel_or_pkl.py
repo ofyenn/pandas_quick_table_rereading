@@ -17,9 +17,9 @@ def read_excel_or_pkl(base_path, filename, header=0):
 
 def this_file_has_been_read(base_path, filename, path_file_xlsx, path_file_pkl):
     answer = False
-    
+
     base_path_pickle = os.path.join(base_path, 'pickle')
-    if not base_path_pickle:
+    if not os.path.exists(base_path_pickle):
         os.mkdir(base_path_pickle)
     hash_table_file = os.path.join(base_path,  'hash_table.pkl')
     if os.path.exists(hash_table_file):

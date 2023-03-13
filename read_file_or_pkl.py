@@ -24,7 +24,7 @@ def read_file_or_pkl(base_path, filename, header=0):
 
 def this_file_has_been_read(base_path_pkl, filename, path_file, path_file_pkl):
     answer = False
-    if not base_path_pkl:
+    if not os.path.exists(base_path_pkl):
         os.mkdir(base_path_pkl)
     hash_table_file = os.path.join(base_path_pkl,  'hash_table.pkl')
     if os.path.exists(hash_table_file):
@@ -55,5 +55,5 @@ def md5(filename):
 
 if __name__ == '__main__':
     path = os.getcwd()
-    df = read_file_or_pkl(path, 'SampleData.ods')
+    df = read_file_or_pkl(path, 'SampleData.xlsx')
     print(df)
