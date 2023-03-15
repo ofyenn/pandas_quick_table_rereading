@@ -1,10 +1,10 @@
-#read_file_or_pkl.py
+#quick_table_rereading.py
 import pandas as pd
 import hashlib
 import os
 
 
-def read_file_or_pkl(base_path, filename, header=0):
+def quick_table_rereading(base_path, filename, header=0):
     pre, ext = os.path.splitext(filename)
     path_file = os.path.join(base_path, filename)
     base_path_pkl = os.path.join(base_path, 'pickle')
@@ -17,7 +17,7 @@ def read_file_or_pkl(base_path, filename, header=0):
         elif ext == '.csv':
             df = pd.read_csv(path_file, header=header)
         else :
-            raise Exception("Module read_file_or_pkl.py does not support format '" + ext + "'!")
+            raise Exception("Module quick_table_rereading.py does not support format '" + ext + "'!")
         df.to_pickle(path_file_pkl)
     return df
 
@@ -55,5 +55,5 @@ def md5(filename):
 
 if __name__ == '__main__':
     path = os.getcwd()
-    df = read_file_or_pkl(path, 'SampleData.xlsx')
+    df = quick_table_rereading(path, 'SampleData.xlsx')
     print(df)
