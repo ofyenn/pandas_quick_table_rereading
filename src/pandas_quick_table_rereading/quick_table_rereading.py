@@ -4,12 +4,10 @@ import hashlib
 import os
 
 
-def quick_table_rereading(base_path, filename, header=0):
-    pre, ext = os.path.splitext(filename)
-    path_file = os.path.join(base_path, filename)
-    base_path_pkl = os.path.join(base_path, 'pickle')
-    path_file_pkl = os.path.join(base_path_pkl, pre+'.pkl')
-    if this_file_has_been_read(base_path_pkl, filename, path_file, path_file_pkl):
+def quick_table_rereading(path_file, header=0):
+    pre, ext = os.path.splitext(path_file)
+    path_file_pkl = pre+'_pkl.pkl'
+    if this_file_has_been_read(path_file, path_file_pkl):
         df = pd.read_pickle(path_file_pkl)
     else:
         if ext in ['.xls', '.xlsx', '.xlsm', '.xlsb']:
@@ -22,15 +20,14 @@ def quick_table_rereading(base_path, filename, header=0):
     return df
 
 
-def this_file_has_been_read(base_path_pkl, filename, path_file, path_file_pkl):
+def this_file_has_been_read(path_file, path_file_pkl):
     answer = False
-    if not os.path.exists(base_path_pkl):
-        os.mkdir(base_path_pkl)
-    hash_table_file = os.path.join(base_path_pkl,  'hash_table.pkl')
+    hash_table_file = os.path.join(os.path.abspath(path_file),  'hash_table.pkl')
     if os.path.exists(hash_table_file):
         df_hash_table = pd.read_pickle(hash_table_file)
     else:
         df_hash_table = pd.DataFrame(columns=['hash'])
+    filename = os.path.basename(path_file)
     file_name_hash = hashlib.md5(filename.encode('utf-8')).hexdigest()
     file_hash = md5(path_file)
     try:
