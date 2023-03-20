@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pandas_quick_table_rereading"
+version = "0.0.2"
+authors = [
+  { name="Artem Grigorev", email="ofyenn@gmail.com" },
+]
+description = "Pandas. Quick rereading table by using pickle"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+  "Pandas>=1.4.4",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ofyenn/pandas_quick_table_rereading"
+"Bug Tracker" = "https://github.com/ofyenn/pandas_quick_table_rereading/issues"

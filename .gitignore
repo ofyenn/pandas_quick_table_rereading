@@ -1,5 +1,5 @@
-SampleData.csv
-SampleData.fods
-SampleData.ods
-model.ipynb
-__pycache__/read_excel_or_pkl.cpython-39.pyc
+__init__.py
+pypi_api
+# Packaging
+*.egg-info
+dist/
