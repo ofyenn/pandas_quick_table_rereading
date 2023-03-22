@@ -1,4 +1,4 @@
-#quick_table_rereading.py
+#table_reading.py
 import pandas as pd
 import hashlib
 import os
@@ -22,7 +22,7 @@ def quick_table_rereading(path_file, header=0):
 
 def this_file_has_been_read(path_file, path_file_pkl):
     answer = False
-    hash_table_file = os.path.join(os.path.abspath(path_file),  'hash_table.pkl')
+    hash_table_file = os.path.join(os.path.dirname(path_file_pkl),  'hash_table.pkl')
     if os.path.exists(hash_table_file):
         df_hash_table = pd.read_pickle(hash_table_file)
     else:
@@ -48,9 +48,3 @@ def md5(filename):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
-
-
-if __name__ == '__main__':
-    path = os.getcwd()
-    df = quick_table_rereading(path, 'SampleData.xlsx')
-    print(df)
