@@ -1,4 +1,4 @@
-# pfrtf - "Pandas fast reading table file by using pickle"
+# pfrtf - Pandas fast reading table file by using pickle
 
 This module will speed up the loading of data into Pandas from files that rarely change. Supports file formats (.xlsx, .xls, .xlsm, .xlsb and .csv). This module tracks file hashes and saves data in *.pkl format. If the file has already been read, re-reading occurs from the *.pkl file. This significantly speeds up the loading of data. In my case, it speeds up data reading by 100 times.
 
