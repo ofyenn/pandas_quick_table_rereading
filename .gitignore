@@ -4,3 +4,4 @@ pypi_api
 *.egg-info
 dist/
 *.pkl
+tests/

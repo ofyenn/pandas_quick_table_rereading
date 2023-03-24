@@ -1,8 +1,7 @@
 import os
-import pqtrr.table_reading as tr
+import pfrtf
 
 if __name__ == '__main__':
     path = os.path.join(os.getcwd(), 'tests', 'SampleData.xlsx')
-    df = tr.quick_table_rereading(path)
+    df = pfrtf.fast_read_file(path)
     print(df)
-    # print(path)

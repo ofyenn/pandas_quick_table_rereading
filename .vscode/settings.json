@@ -3,5 +3,6 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     // "editor.wordWrap": "on",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.terminal.activateEnvironment": false
   }
