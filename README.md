@@ -10,14 +10,13 @@ This module will speed up the loading of data into Pandas from files that rarely
     openpyxl>=2.6.0
 
 # Install
-To install the extension, execute:
->>> pip install pfrtf
+    pip install pfrtf
 
 # Tutorial:
     import pfrtf
     import os
     path_file = os.path.join(os.getcwd(),'SampleData.xlsx')
     df = pfrtf.fast_read_file(path_file)
-or
+
     import pfrtf
     df = pfrtf.fast_read_file(r'C:\Users\user\SampleData.xlsx')
