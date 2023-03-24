@@ -1,4 +1,4 @@
-## pfrtf
+# pfrtf
 
 # description
 pfrtf - "Pandas fast reading table file by using pickle"
@@ -11,11 +11,7 @@ This module will speed up the loading of data into Pandas from files that rarely
 
 # Install
 To install the extension, execute:
-    pip install pfrtf
-
-# Uninstall
-To remove the extension, execute:
-    pip uninstall pfrtf
+>>> pip install pfrtf
 
 # Tutorial:
     import pfrtf
